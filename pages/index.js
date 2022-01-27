@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
-export default function Home() {
+export default function Home({data}) {
+  console.log(data)
   return (
     <div className="container">
       <Head>
@@ -10,40 +11,78 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          It's in your hands now.
         </h1>
 
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+        Legends aren't born, they're made.<code>🔥 Join a Team Today</code>
         </p>
 
         <div className="grid">
           <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
+            <h3>Supergirl &rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
+            </div>
             <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Batgirl&rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Batgirl&rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
           </a>
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Supergirl &rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+        </div>
+
+        <div className="grid">
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Supergirl &rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Batgirl&rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Batgirl&rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
+          </a>
+
+          <a href="https://nextjs.org/docs" className="card">
+            <h3>Supergirl &rarr;</h3>
+            <div className="img-container">
+            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
+            </div>
+            <p>Find in-depth information about Next.js features and API.</p>
           </a>
         </div>
       </main>
@@ -54,7 +93,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          {' '}
           <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
@@ -142,15 +181,14 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-wrap: wrap;
 
-          max-width: 800px;
+          max-width: 80%;
           margin-top: 3rem;
         }
 
         .card {
           margin: 1rem;
-          flex-basis: 45%;
+          flex-basis: 65%;
           padding: 1.5rem;
           text-align: left;
           color: inherit;
@@ -182,7 +220,16 @@ export default function Home() {
           height: 1em;
         }
 
-        @media (max-width: 600px) {
+        .img-container{
+          width: 100%;
+        }
+
+        img{
+          width: 100%;
+          border-radius: 10px;
+        }
+
+        @media (max-width: 1000px) {
           .grid {
             width: 100%;
             flex-direction: column;
@@ -206,4 +253,15 @@ export default function Home() {
       `}</style>
     </div>
   )
+}
+
+export async function getStaticProps(){
+    const res = await fetch('http://localhost:1337/api/teams?populate[characters][populate]=*');
+    const data  = await res.json();
+
+    return{
+      props:{
+        data
+      }
+    }
 }
