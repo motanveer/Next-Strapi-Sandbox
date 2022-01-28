@@ -2,13 +2,9 @@ import Head from 'next/head'
 import Team from '../components/team'
 
 export default function Home({ data }) {
-
-  console.log(data.data)
-
-  const teams = data.data.map((team, index) => {
-    console.log(team.attributes.Name)
-  })
-
+  
+  var teams;
+  
 
   return (
     <div className="container">
@@ -28,10 +24,12 @@ export default function Home({ data }) {
         </p>
 
         <hr />
-
-        <Team/>
-        <Team/>
-
+        {
+        teams = data.data.map((team, index) => {
+            return <Team key={index} data ={team.attributes}/>
+          })
+        }
+        
 
 
       </main>

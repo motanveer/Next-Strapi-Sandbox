@@ -2,18 +2,15 @@ import React from 'react';
 import Card from './card';
 import styles from './card.module.css'
 
-export default function team() {
+export default function team({data}) {
+    let characters = data.characters.data
   return <div className={styles.teamContainer}>
-      <h2>❤️ Team Ambria</h2>
-        <p>
-          The country of Embron. Built upon the vigor, darker times and intelligence of its past, this country is now among the most uncontrolled countries in its corner of the world.
-          Their medicine, hygiene and natural resources are among its current greatest strengths. Unfortunately they lack a lot in housing and trade.
-        </p>
+      <h2>{data.Name}</h2>
+        <p>{data.Description}</p>
         <div className={styles.grid}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+         {characters = characters.map((character, index)=>{
+             return(<Card key={index} data={character.attributes}/>)
+         })}
         </div>
   </div>;
 
