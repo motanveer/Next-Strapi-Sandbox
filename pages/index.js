@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Card from '../components/card';
 
 export default function Home({data}) {
   console.log(data)
@@ -14,77 +15,28 @@ export default function Home({data}) {
           It's in your hands now.
         </h1>
 
+
         <p className="description">
         Legends aren't born, they're made.<code>🔥 Join a Team Today</code>
         </p>
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Supergirl &rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <hr/>
 
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Batgirl&rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Batgirl&rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Supergirl &rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-        </div>
 
         <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Supergirl &rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Batgirl&rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Batgirl&rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/Batgirl_DC_Comics_f26db38d5d.jpg?updated_at=2022-01-27T22:40:13.283Z"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Supergirl &rarr;</h3>
-            <div className="img-container">
-            <img src="http://localhost:1337/uploads/example1_f87ba1a845.jpg"></img>
-            </div>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <Card/>
+          <Card/>
+          <Card/>
         </div>
+        
+        <div className="grid">
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+        </div>
+        
+        
       </main>
 
       <footer>
@@ -182,51 +134,12 @@ export default function Home({data}) {
           align-items: center;
           justify-content: center;
 
-          max-width: 80%;
+          max-width: 70%;
           margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 65%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
         }
 
         .logo {
           height: 1em;
-        }
-
-        .img-container{
-          width: 100%;
-        }
-
-        img{
-          width: 100%;
-          border-radius: 10px;
         }
 
         @media (max-width: 1000px) {
