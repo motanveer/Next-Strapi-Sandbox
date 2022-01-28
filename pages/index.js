@@ -1,8 +1,15 @@
 import Head from 'next/head'
-import Card from '../components/card';
+import Team from '../components/team'
 
-export default function Home({data}) {
-  console.log(data)
+export default function Home({ data }) {
+
+  console.log(data.data)
+
+  const teams = data.data.map((team, index) => {
+    console.log(team.attributes.Name)
+  })
+
+
   return (
     <div className="container">
       <Head>
@@ -17,26 +24,16 @@ export default function Home({data}) {
 
 
         <p className="description">
-        Legends aren't born, they're made.<code>🔥 Join a Team Today</code>
+          Legends aren't born, they're made.<code>🔥 Join a Team Today</code>
         </p>
 
-        <hr/>
+        <hr />
+
+        <Team/>
+        <Team/>
 
 
-        <div className="grid">
-          <Card/>
-          <Card/>
-          <Card/>
-        </div>
-        
-        <div className="grid">
-          <Card/>
-          <Card/>
-          <Card/>
-          <Card/>
-        </div>
-        
-        
+
       </main>
 
       <footer>
@@ -58,6 +55,7 @@ export default function Home({data}) {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+      
         }
 
         main {
@@ -129,24 +127,8 @@ export default function Home({data}) {
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         }
 
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          max-width: 70%;
-          margin-top: 3rem;
-        }
-
         .logo {
           height: 1em;
-        }
-
-        @media (max-width: 1000px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
         }
       `}</style>
 
@@ -168,13 +150,13 @@ export default function Home({data}) {
   )
 }
 
-export async function getStaticProps(){
-    const res = await fetch('http://localhost:1337/api/teams?populate[characters][populate]=*');
-    const data  = await res.json();
+export async function getStaticProps() {
+  const res = await fetch('http://localhost:1337/api/teams?populate[characters][populate]=*');
+  const data = await res.json();
 
-    return{
-      props:{
-        data
-      }
+  return {
+    props: {
+      data
     }
+  }
 }
