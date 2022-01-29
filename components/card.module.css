@@ -1,33 +1,36 @@
-.card {
+.fullCard, .card {
     margin: 1.1rem;
     flex-basis: 75%;
     padding: 2rem;
     text-align: left;
     color: inherit;
+    cursor: pointer;
     text-decoration: none;
     border: 1px solid #eaeaea;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
-    height: 600px;
   }
-
-  .card:hover,
+.card:hover,
   .card:focus,
   .card:active {
     color: #0070f3;
     border-color: #0070f3;
   }
 
-  .card h3 {
+  .fullCard,.card h3 {
     margin: 0 0 1rem 0;
     font-size: 1.5rem;
   }
 
-  .card p {
+  .fullCard,.card p {
     margin: 0;
     margin-top: 10px;
     font-size: 1.1rem;
     line-height: 1.5;
+  }
+
+  .fullCard{
+    max-width: 40%;
   }
 
   .logo {
@@ -35,15 +38,21 @@
   }
 
 
-
   .imgCard{
 
-     width: 300px;
-     height: 300px;
+     width: 100%;
+     height: 600px;;
     border-radius: 10px;
     object-fit: cover;
     margin: 0 auto;
    
+  }
+
+ .fullimgCard{
+   margin: 0 auto;
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
   }
 
 
@@ -65,6 +74,10 @@
     .grid {
       width: 100%;
       flex-direction: column;
+    }
+
+    .fullCard{
+      max-width: 80%;
     }
   }
 
@@ -89,4 +102,9 @@ border-bottom: 1px lightgray solid;
     width: 68%;
     line-height: 1.8;
     margin: 0 auto;
+  }
+
+
+  .link:hover{
+    cursor: pointer;
   }

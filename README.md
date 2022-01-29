@@ -7,7 +7,7 @@ I wanted to explore creating static sites powered by Next w/ data and content de
 
 | ✅ | Basic site w/ Dynamic Data |
 | ----------- | ----------- |
-| 🛠| Programatically Generate Pages|
+| ✅| Programatically Generate Pages|
 | ⭕️| Routing and Navigation|
 | ⭕️| Use Image and Font Optimization|
 | ⭕️| Deploy Production Build|

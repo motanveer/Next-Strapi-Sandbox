@@ -3,8 +3,8 @@ import Team from '../components/team'
 
 export default function Home({ data }) {
   
-  var teams;
-  
+    var teams;
+    console.log(data)
 
   return (
     <div className="container">
@@ -26,7 +26,7 @@ export default function Home({ data }) {
         <hr />
         {
         teams = data.data.map((team, index) => {
-            return <Team key={index} data ={team.attributes}/>
+            return <Team key={index} data ={team}/>
           })
         }
         
